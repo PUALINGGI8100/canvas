@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANVAS API</title>
+    <style>
+        *{ margin:0; padding:0; box-sizing:border-box; outline:unset; }
+        .container{ display:flex; width:90%; margin:20px auto; }
+        .sidebar{ display:flex; flex-direction:column; width:30%; justify-content:center; }
+        .main{ flex-grow:1; display:flex; justify-content:center; padding:0 1rem; }
+        .box{ flex-grow:1; display:flex; flex-direction:column; }
+        h1.title{ font:600 15pt Tahoma; padding:10px 0; border-bottom:1px solid rgb(226, 226, 226); border-top:1px solid rgb(226, 226, 226); }
+        .item{ display:flex; padding:10px 0; flex-grow:1; flex-direction:column; justify-content: center; }
+        .inside{ display:flex; flex-grow:1; padding:10px 0; align-items:center; }
+        .inside label,input:not([type="checkbox"]){ flex-grow:1; }
+        canvas{ border:1px solid rgb(199, 199, 199); }
+        .even{ margin-right:20px; }
+        @media screen and (max-width:640px){
+            .container, .sidebar{ flex-direction:column; }
+            .sidebar{ width:100%; flex-grow:1; }
+            canvas{ margin:20px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="sidebar">
+            <div class="box">
+                <h1 class="title">size</h1>
+                <div class="item">
+                    <label for="drawer-size">drawer :</label>
+                    <input type="range" min="1" max="100" value="20" id="drawer-size">
+                </div>
+                <div class="item">
+                    <label for="eraser-size">eraser :</label>
+                    <input type="range" min="1" max="100" value="20" id="eraser-size">
+                </div>
+            </div>
+            <div class="box">
+                <h1 class="title">color</h1>
+                <div class="inside">
+                    <label for="color">drawer</label>
+                    <input type="color" id="color">
+                </div>
+            </div>
+            <div class="box">
+                <h1 class="title">mode</h1>
+                <div class="inside">
+                    <label for="draw">DRAW</label>
+                    <input type="checkbox" class="even" checked id="draw">
+                    <label for="erase">ERASE</label>
+                    <input type="checkbox" id="erase">
+                </div>
+            </div>
+        </section>
+        <section class="main">
+            <canvas id="cv"></canvas>
+        </section>
+    </div>
+</body>
+    <script defer src="./index.js"></script>
+</html>
